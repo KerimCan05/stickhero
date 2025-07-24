@@ -10,8 +10,9 @@ body, .container {
 
 #score {
     position: absolute;
-    top: 30px;
+    top: 3px;
     right: 30px;
+    color: white;
     font-size: 2em;
     font-weight: 900;
 }
