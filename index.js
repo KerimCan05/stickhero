@@ -27,6 +27,7 @@ const fallingSpeed = 2;
 
 // Getting the canvas element
 const canvas = document.getElementById('game');
+canvas.width = window.innerWidth
 
 // Getting the drawing context
 const ctx = canvas.getContext('2d');
