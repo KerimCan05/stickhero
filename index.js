@@ -167,21 +167,29 @@ function drawSticks() {
 }
 
 window.addEventListener("mousedown", function (event) {
-
     if (phase === "waiting") {
         phase = "stretching";
         lastTimestamp = undefined;
         window.requestAnimationFrame(animate);
     }
-
+});
+window.addEventListener("touchstart", function (event) {
+    if (phase === "waiting") {
+        phase = "stretching";
+        lastTimestamp = undefined;
+        window.requestAnimationFrame(animate);
+    }
 });
 
 window.addEventListener("mouseup", function (event) {
-
     if (phase === "stretching") {
         phase = "turning";
     }
-
+});
+window.addEventListener("touchend", function (event) {
+    if (phase === "stretching") {
+        phase = "turning";
+    }
 });
 
 restartButton.addEventListener("click", function (event) {
