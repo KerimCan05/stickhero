@@ -1,4 +1,4 @@
-console.log('Hello World!')
+console.log('Hello World!');
 
 //Game State
 
@@ -7,6 +7,8 @@ let lastTimestamp;
 
 let heroX;
 let heroY;
+let heroColor;
+let platformColor;
 let sceneOffset;
 
 let platforms = [];
@@ -39,6 +41,15 @@ const restartButton = document.getElementById('restart');
 // Start Game
 resetGame();
 
+function getRandomColor() {
+    const char = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++){
+        color += char[Math.floor(Math.random() * 16)]
+    }
+    return color;
+}
+
 // Resets game state and layout
 function resetGame() {
 
@@ -65,6 +76,9 @@ function resetGame() {
 
     // Score
     score = 0;
+
+    heroColor = getRandomColor();
+    platformColor = getRandomColor();
 
     // Reset UI
     restartButton.style.display = 'none';
@@ -116,7 +130,7 @@ function draw() {
 function drawPlatforms() {
     platforms.forEach(({x,w}) => {
         // Draw platform
-        ctx.fillStyle = "black";
+        ctx.fillStyle = platformColor;
         ctx.fillRect(x, canvasHeight - platformHeight, w, platformHeight)
     });
 }
@@ -124,7 +138,7 @@ function drawHero() {
     const heroWidth = 20;
     const heroHeight = 30;
 
-    ctx.fillStyle = "red";
+    ctx.fillStyle = heroColor;
     ctx.fillRect(
         heroX,
         heroY + canvasHeight - platformHeight - heroHeight,
