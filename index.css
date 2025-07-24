@@ -24,4 +24,8 @@ canvas {
 #restart {
     position: absolute;
     display: none;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
